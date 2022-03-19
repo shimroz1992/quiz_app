@@ -1,0 +1,19 @@
+<span>Over the past 2 weeks, how often have you been bothered by any of the following problems?
+</span>
+<%= form_for(:screen_answer, url: "/screen_answer",method: :post) do |f| %>
+<%= hidden_field_tag(:screen_id, @screen.id)%>
+<%@questions.each_with_index do |question, index| %>
+<p><%= index = index + 1%>. <%= question.title%></p>
+  <div class="field">
+  	<% Question.answers.each_with_index do |value, index_2| %>
+
+       <%= f.radio_button index, index_2 %><%= value %>
+
+            	
+    <% end %>
+
+  </div>
+
+<% end %>
+<%= f.submit %>
+<% end %>

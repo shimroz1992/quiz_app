@@ -27,3 +27,13 @@ Shoulda::Matchers.configure do |config|
 end
 
 ActiveRecord::Migration.maintain_test_schema!
+
+
+  Capybara.register_driver :selenium do |app|
+    profile = Selenium::WebDriver::Chrome::Profile.new
+    Capybara::Selenium::Driver.new( app, :profile => profile)
+  end
+  Capybara.default_max_wait_time = 10
+  Capybara.default_driver = :selenium_chrome
+  Capybara.javascript_driver = :selenium
+

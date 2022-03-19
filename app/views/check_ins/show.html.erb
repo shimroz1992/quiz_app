@@ -2,6 +2,6 @@
 <ul>
   <li>Start PHQ screener</li>
 </ul>
-<%= form_for(:check_in, url: check_in_path, method: :put, id: 1) do |f| %>
-  <%= f.submit "Complete check in" %>
+<% @categories.each do |category| %>
+  <%= link_to "Start PHQ screener", check_in_category_path(@check_in, category)%>
 <% end %>

@@ -9,6 +9,7 @@ class CheckInsController < ApplicationController
 
   def show
     @check_in = CheckIn.find(params[:id])
+    @categories = Category.all
   end
 
   def update
